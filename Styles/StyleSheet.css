@@ -1,0 +1,135 @@
+header {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background: #EAECEE;
+}
+
+main {
+    align-items: center;
+    width: 10px auto;
+    background: #EAECEE;
+    border-radius: 1px;
+    margin: 10px auto;
+    padding: 20px;
+}
+
+footer {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+.UserInfo {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    background: #EAECEE;
+    border-radius: 1px;
+    margin: 10px auto;
+    padding: 20px;
+}
+
+.loginForm {
+    background: #EAECEE;
+    width: 98%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.ProPic img {
+    width: 30%;
+    height: 30%;
+    border-radius: 30px;
+    margin-left: 35%;
+    margin-right: 35%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.topnav {
+    background-color: #b4b4b4;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.topnav a {
+    float: left;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 400;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: #eaecee3a;
+    color: #EAECEE;
+    font-weight: 900;
+}
+
+.topnav a.active {
+    background-color: #333;
+    color: #ffffff;
+    font-weight: 100;
+}
+
+input[type=text], input[type=password], input[type=number] {
+    width: 98%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+input[type=submit] {
+    font-family: 'Courier New', Courier, monospace;
+    margin: auto;
+    width: 100%;
+    font-size: 20px;
+}
+
+button {
+    font-family: 'Courier New', Courier, monospace;
+    margin: auto;
+    width: 100%;
+    font-size: 20px;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background: #b4b4b4;
+}
+
+.float-right {
+    float: right;
+}
+
+.btn {
+    margin-right: 5px;
+}
+
+.HomePic img {
+    width: 25%; 
+    height: auto;
+    background: #EAECEE;
+    border-radius: 1px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

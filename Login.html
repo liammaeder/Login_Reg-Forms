@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="Styles/StyleSheet.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>WELCOME TO LIAMMAEDER.COM!</h1>
+        <P>LOGIN PAGE</P>
+    </header>
+    <main>
+        <div class="topnav">
+            <a href='Home.html'>Home</a>
+            <a href='Profile.html'>Profile</a>
+            <a class="active" href='Login.html'>Login</a>
+            <a href='Registration.html'>Register</a>
+        </div>
+        <div class="loginForm">
+            <form id="RegForm" onsubmit="login()">
+                <legend>Please login below</legend>
+                <div id="divName">
+                    <input type="text" name="username" id="fUsername" placeholder="Username">
+                    <input type="password" name="password" id="fPassword" placeholder="Password">
+                </div>
+                <div id="divSubmit">
+                    <input type="submit" name="btnSubmit" id="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer>        
+        <p>Created on September 2021, by <a href="Home.html">liammaeder.com</a></p>
+    </footer>
+    <script>
+        function login() {
+
+            //Get the Session info after Registration
+            const userJSON = sessionStorage.getItem("User");
+            const User = JSON.parse(userJSON);
+
+            //Capture the values from login
+            const inUsername = document.getElementById("fUsername").value;
+            const inPassword = document.getElementById("fPassword").value;
+
+            //Validate that the fields are filled in
+            if(inUsername == "") {
+                alert("Please fill in the Username field");
+            } else if (inPassword == "" ) {
+                alert("Please fill in the Password field");
+            } else {
+                console.log("Checking Details...");
+            }
+
+            //Assign the login details to an array
+            const userLoginInfo = {
+                username: inUsername,
+                password: inPassword
+            }
+
+            //Check that the userame entered is in the session info
+            if(User.Username == userLoginInfo.username) {
+                console.log("User found");
+
+                //Check that the password entered is in the session info
+                if(User.Password == userLoginInfo.password) {
+                    //If the username and password are correct, then redirect to the profile page
+                    console.log("Password match.");
+                    sessionStorage.setItem("loginResult", 1);
+                    alert("Access Granted!");
+                } else {
+                    //If the password is incorrect, then alert the user
+                    sessionStorage.setItem("loginResult", 0);
+                    alert("Incorrect Password.");
+
+                }
+                // Transfer to the Profile Page if succesful
+                if(sessionStorage.getItem("loginResult") == 1)   {
+                    window.location.href = "Profile.html";
+                    alert("Transferring to Profile Page...");     
+                }
+
+            } else {
+                //If the username is incorrect, then alert the user
+                alert("Incorrect Username.");
+                window.location.href = "Registration.html";
+            }
+        }
+    </script>
+</body>
+</html>

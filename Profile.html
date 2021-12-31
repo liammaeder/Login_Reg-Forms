@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="Styles/StyleSheet.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>liammaeder.com</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <h1>WELCOME TO  LIAMMAEDER.COM!</h1>
+            <p>Profile page</p>
+        </header>
+        <main>
+            <div class="topnav">
+                <a href='Home.html'>Home</a>
+                <a class="active" href='Profile.html'>Profile</a>
+                <a href='Login.html'>Login</a>
+                <a href='Registration.html'>Register</a>
+            </div>
+            <div class="ProPic" id="ProPic">
+                <img id="AvatarIcon">
+            </div>
+            <div class="UserInfo" id="UserInfo">
+            </div>
+        </main>
+        <footer>
+            Created on September 2021, by <a href="Home.html">liammaeder.com</a>
+        </footer>
+        <script>
+            $(document).ready(function(){
+                const user = JSON.parse(sessionStorage.getItem("User"));
+                const loginRes = sessionStorage.getItem("loginResult");
+                let avatarElement = document.getElementById("AvatarIcon");
+
+                if(loginRes != 1){
+                    // Log Login Result
+                    if (loginRes == 1){
+                        console.log("User details load error");
+                    } else {
+                        alert("You are not logged in!");
+                    }
+
+                    $("#UserInfo").append("<p> No user information found </p>");
+                    avatarElement.src = "Resources/AvatarNone.jpg";
+                    avatarElement.alt = "AvatarNone.jpg";
+
+                } else if (loginRes == 1){
+                    // Determine Avatar
+                    if (user.Gender == "Male") {
+                        avatarElement.src = "Resources/AvatarM.png";
+                        avatarElement.alt = "AvatarM.png";
+                    } else if (user.Gender == "Female") {
+                        avatarElement.src = "Resources/AvatarF.jpg";
+                        avatarElement.alt = "AvatarF.jpg";
+                    } else {
+                        avatarElement.src = "Resources/AvatarOther.jpg";
+                        avatarElement.alt = "AvatarOther.jpg";
+                    }
+
+                    $("#UserInfo").append("<p> Logged in as: </br>Username: <b>" + user.Username + "</b></br>Name: <b>" + user.firstName + " " + user.lastName + "</b></br>Age: <b>" + user.Age + "</b></br>Gender: <b>" + user.Gender + "</b></p>");
+                }
+            });
+        </script>
+    </body>
+</html>
