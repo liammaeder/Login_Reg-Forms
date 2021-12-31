@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="Styles/StyleSheet.css">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>liammaeder.com</title>
+    </head>
+    <body>
+        <header>
+            <h1>WELCOME TO LIAMMAEDER.COM!</h1>
+            <P>REGISTRATION PAGE</P>
+        </header>
+        <main>
+            <div class="topnav">
+                <a href='Home.html'>Home</a>
+                <a href='Profile.html'>Profile</a>
+                <a href='Login.html'>Login</a>
+                <a class="active" href='Registration.html'>Register</a>
+            </div>
+            <div class="loginForm">
+                <form id="RegForm" onsubmit="registration()">
+                    <legend>Please Enter Your Personal Details</legend>
+                    <div id="divName">
+                        <input type="text" name="fName" id="fName" placeholder="First Name">
+                        <input type="text" name="lName" id="lName" placeholder="Last Name">
+                    </div>
+                    <div id="divAge">
+                        <input type="number" name="inAge" id="inAge" placeholder="Age">
+                    </div>
+                    <div id="divGender">
+                        <select name="selGender" id="selGender">
+                            <option value="" selected disabled hidden>Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div id="divUsername">
+                        <input type="text" name="Username" id="Username" placeholder="Username">
+                    </div>
+                    <div id="divPassword">
+                        <input type="password" name="Password" id="Password" placeholder="Password">
+                    </div>
+                    <input type="submit" id="submit" value="Submit">
+                </form>
+            </div>
+        </main>
+        <footer>
+        </footer>
+        <script>
+            function registration() {
+                //Capture form values
+                const fName = document.getElementById("fName").value;
+                const lName = document.getElementById("lName").value;
+                const inAge = document.getElementById("inAge").value;
+                const selGender = document.getElementById("selGender").value;
+                const inUsername = document.getElementById("Username").value;
+                const inPassword = document.getElementById("Password").value;
+
+                // alert("fName = " + fName);
+                // alert("lName = " + lName);
+                // alert("inAge = " + inAge);
+                // alert("selGender = " + selGender);
+                // alert("inUsername = " + inUsername);
+                // alert("inPassword = " + inPassword);
+
+                // Validate that all fields are filled in
+                if(fName == "") {
+                    alert("Please fill in your First Name");
+                } else if(lName == "") {
+                    alert("Please fill in your Last Name");
+                } else if (inAge == "") {
+                    alert("Please fill in your Age");
+                } else if (selGender == "") {
+                    alert("Please select your Gender");
+                } else if (inUsername == "") {
+                    alert("Please fill in your Username");
+                } else if (inPassword == "") {
+                    alert("Please fill in your Password");
+                } else {
+                    console.log("All fields filled in");    
+                }
+
+                // Save the entered values to an array
+                const user = {
+                    firstName: fName,
+                    lastName: lName,
+                    Age: inAge,
+                    Gender: selGender,
+                    Username: inUsername,
+                    Password: inPassword
+                };
+
+                // alert(user.firstName+" "+user.lastName+" "+user.Age+" "+user.Gender+" "+user.Username+" "+user.Password);
+
+                // convert the array yo JSON and save to localStorag:
+                const userJSON = JSON.stringify(user);
+                sessionStorage.setItem("User", userJSON);
+                // alert(sessionStorage.getItem("User"));
+                
+                // redirect to the login page
+                window.location.href = "Login.html";
+
+                alert("Registration Successful!");
+            }
+        </script>
+    </body>
+</html>
